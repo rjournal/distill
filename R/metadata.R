@@ -868,6 +868,7 @@ creative_commons_url <- function(metadata_creative_commons) {
 
 # provide qualified title if specified in site and different from title
 qualified_title <- function(site_config, metadata) {
+  site_config$title <- NULL ## site title should never be part of the article title
   if (!is.null(site_config$title) && !identical(site_config$title, metadata$title)) {
     sprintf("%s: %s", site_config$title, metadata$title)
   } else {
